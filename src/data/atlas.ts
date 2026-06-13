@@ -238,6 +238,29 @@ export interface Sponsor {
   blurb: string;
 }
 
+export type WipelistServer =
+  | "Atlas NA 2x Monthly"
+  | "Atlas NA 2x Medium"
+  | "Atlas EU 2x Monthly"
+  | "Atlas EU 2x Medium";
+
+export interface WipelistSignup {
+  clanId: string;
+  server: WipelistServer;
+  rosterSize: number;
+}
+
+export interface SceneClan {
+  id: string;
+  tag: string;
+  name: string;
+  slug: string;
+  accent: string;
+  rosterSize: number;
+  server: WipelistServer;
+  rank: number;
+}
+
 // ----------------------------------------------------------------------------
 //  1. SITE
 // ----------------------------------------------------------------------------
@@ -487,7 +510,37 @@ export const rankings: Rankings = {
 };
 
 // ----------------------------------------------------------------------------
-//  8. DRAMA FEED
+//  8. WIPELIST
+// ----------------------------------------------------------------------------
+
+export const wipelistServers: WipelistServer[] = [
+  "Atlas NA 2x Monthly",
+  "Atlas NA 2x Medium",
+  "Atlas EU 2x Monthly",
+  "Atlas EU 2x Medium",
+];
+
+export const wipelist: WipelistSignup[] = [
+  { clanId: "wk", server: "Atlas NA 2x Monthly", rosterSize: 32 },
+  { clanId: "lx", server: "Atlas NA 2x Monthly", rosterSize: 28 },
+  { clanId: "rtc", server: "Atlas NA 2x Monthly", rosterSize: 24 },
+  { clanId: "556", server: "Atlas NA 2x Monthly", rosterSize: 21 },
+  { clanId: "rmb", server: "Atlas NA 2x Medium", rosterSize: 18 },
+  { clanId: "ot", server: "Atlas NA 2x Medium", rosterSize: 17 },
+  { clanId: "wb", server: "Atlas NA 2x Medium", rosterSize: 16 },
+  { clanId: "burger-king", server: "Atlas NA 2x Medium", rosterSize: 12 },
+  { clanId: "gk", server: "Atlas EU 2x Monthly", rosterSize: 30 },
+  { clanId: "sf", server: "Atlas EU 2x Monthly", rosterSize: 27 },
+  { clanId: "od", server: "Atlas EU 2x Monthly", rosterSize: 25 },
+  { clanId: "ev1l", server: "Atlas EU 2x Monthly", rosterSize: 22 },
+  { clanId: "kittyware", server: "Atlas EU 2x Medium", rosterSize: 18 },
+  { clanId: "fog", server: "Atlas EU 2x Medium", rosterSize: 16 },
+  { clanId: "sparta", server: "Atlas EU 2x Medium", rosterSize: 14 },
+  { clanId: "guten-boys", server: "Atlas EU 2x Medium", rosterSize: 13 },
+];
+
+// ----------------------------------------------------------------------------
+//  9. DRAMA FEED
 // ----------------------------------------------------------------------------
 
 export const drama: DramaPost[] = [
@@ -724,8 +777,25 @@ export const footer = {
 //  HOME PAGE SECTION COPY  (the cinematic landing)
 // ----------------------------------------------------------------------------
 
-// "They trust us" -> the clans in the scene (word-reveal roll-call). Swap freely.
-export const sceneClans: string[] = clans.map((c) => c.tag);
+// "They trust us" -> the clans in the scene, driven by registered wipelist signups.
+export const sceneClans: SceneClan[] = wipelist
+  .map((signup) => {
+    const clan = clans.find((c) => c.id === signup.clanId);
+    if (!clan) return null;
+
+    return {
+      id: clan.id,
+      tag: clan.tag,
+      name: clan.name,
+      slug: clan.slug,
+      accent: clan.accent,
+      rosterSize: signup.rosterSize,
+      server: signup.server,
+      rank: clan.rank,
+    };
+  })
+  .filter((clan): clan is SceneClan => Boolean(clan))
+  .sort((a, b) => b.rosterSize - a.rosterSize || a.rank - b.rank);
 
 // Manifesto — fills ash -> white line by line on scroll. Keep the leading spaces.
 export const manifesto = {

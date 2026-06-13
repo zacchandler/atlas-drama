@@ -1,6 +1,7 @@
-import { Fragment } from "react";
+import { Fragment, type CSSProperties } from "react";
 import { sceneClans } from "@/data/atlas";
 import { asset } from "@/lib/asset";
+import Link from "@/lib/Link";
 
 /**
  * PartnersSection — the clan roll-call ("the clans in the scene").
@@ -17,8 +18,6 @@ function BrandText({ text }: { text: string }) {
 }
 
 export default function PartnersSection() {
-  const brandNames = sceneClans;
-
   return (
     <section
       id="partners"
@@ -69,15 +68,22 @@ export default function PartnersSection() {
         className="brands"
         data-scroll=""
         data-scroll-call="ANIMATE_BRAND_WORDS"
-        style={{ margin: "74.304px auto 0", maxWidth: "855px" }}
+        style={{ margin: "74.304px auto 0" }}
       >
-        {brandNames.map((name, i) => {
-          const isLast = i === brandNames.length - 1;
+        {sceneClans.map((clan, i) => {
+          const isLast = i === sceneClans.length - 1;
           return (
-            <Fragment key={name}>
+            <Fragment key={clan.id}>
               <span className="word-mask">
                 <span style={{ transitionDelay: `${i * 35}ms` }}>
-                  <BrandText text={name} />
+                  <Link
+                    href={`/clans/${clan.slug}`}
+                    className="brand-link"
+                    style={{ "--clan-accent": clan.accent } as CSSProperties}
+                    title={`${clan.name} · ${clan.rosterSize} players · ${clan.server}`}
+                  >
+                    <BrandText text={clan.tag} />
+                  </Link>
                   {isLast ? "." : ","}
                 </span>
               </span>
@@ -122,6 +128,9 @@ export default function PartnersSection() {
         #partners .sentence { opacity: 0; transition: opacity 0.8s linear 0.1s; }
         #partners .sentence.is-inview { opacity: 1; }
 
+        #partners .brands {
+          max-width: 855px;
+        }
         #partners .brands .word-mask {
           font-size: 36px;
           font-weight: 400;
@@ -139,7 +148,20 @@ export default function PartnersSection() {
           transform: translate3d(0, 0, 0);
           opacity: 1;
         }
-
+        #partners .brand-link {
+          color: inherit;
+          text-decoration: none;
+          transition: color 0.25s ease;
+        }
+        #partners .brand-link:hover,
+        #partners .brand-link:focus-visible {
+          color: var(--clan-accent);
+        }
+        #partners .brand-link:focus-visible {
+          border-radius: 3px;
+          outline: 1px solid var(--clan-accent);
+          outline-offset: 4px;
+        }
         #partners .button--arrow::after {
           content: "";
           position: absolute;
