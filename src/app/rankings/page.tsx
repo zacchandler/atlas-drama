@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/lib/Link";
 import { rankings, clanById } from "@/data/atlas";
 import { PageHero, TierBadge, Movement, ArrowR } from "@/components/inner/ui";
 import Reveal from "@/components/inner/Reveal";

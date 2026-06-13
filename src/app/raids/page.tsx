@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/lib/Link";
 import { raids, clanById, type Raid } from "@/data/atlas";
 import { asset } from "@/lib/asset";
 import { PageHero, scoreColor } from "@/components/inner/ui";

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/lib/Link";
 import { notFound } from "next/navigation";
 import { raids, clanById } from "@/data/atlas";
 import { asset } from "@/lib/asset";

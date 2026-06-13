@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
+import Link from "@/lib/Link";
 import { usePathname } from "next/navigation";
 import { nav, site } from "@/data/atlas";
 

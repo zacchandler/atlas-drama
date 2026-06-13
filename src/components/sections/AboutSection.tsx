@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/lib/Link";
 import { about } from "@/data/atlas";
 
 function Arrow({ size = 12 }: { size?: number }) {
