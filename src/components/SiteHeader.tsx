@@ -25,7 +25,7 @@ function ArrowIcon({ visible }: { visible: boolean }) {
   );
 }
 
-function Wordmark({ dark }: { dark?: boolean }) {
+function Wordmark() {
   return (
     <span style={{ display: "inline-flex", alignItems: "baseline", gap: 6, whiteSpace: "nowrap" }}>
       <span style={{ fontSize: 18, fontWeight: 700, lineHeight: 1, letterSpacing: "0.04em" }}>
@@ -98,13 +98,21 @@ export default function SiteHeader() {
             textDecoration: "none",
           }}
         >
-          <Wordmark dark={isDarkText} />
+          <Wordmark />
         </Link>
 
         {/* Anchor nav — right-aligned vertical stack */}
         <nav
           className="hidden lg:flex"
-          style={{ position: "absolute", right: 0, top: 34, flexDirection: "column", alignItems: "flex-end", pointerEvents: "auto" }}
+          style={{
+            position: "fixed",
+            right: "clamp(24px, 4.8vw, 92px)",
+            top: 34,
+            width: 150,
+            flexDirection: "column",
+            alignItems: "flex-end",
+            pointerEvents: "auto",
+          }}
         >
           {nav.map((item) => {
             const on = hovered === item.section || isActive(item);

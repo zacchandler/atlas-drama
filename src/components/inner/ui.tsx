@@ -20,7 +20,7 @@ export function PageHero({
   sub?: string;
 }) {
   return (
-    <header className="relative mx-auto w-full max-w-[1200px] px-6 pt-[150px] pb-[52px] md:px-[80px] md:pt-[210px] md:pb-[72px]">
+    <header className="relative mx-auto w-full max-w-[1200px] px-6 pt-[150px] pb-[52px] md:px-[80px] md:pt-[210px] md:pb-[72px] lg:pr-[260px] xl:pr-[300px]">
       {/* ember glow behind the title */}
       <div
         aria-hidden="true"

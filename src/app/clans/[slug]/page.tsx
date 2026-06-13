@@ -37,7 +37,7 @@ export default async function ClanPage({ params }: { params: Promise<{ slug: str
   return (
     <main className="bg-black">
       {/* Hero */}
-      <header className="relative mx-auto w-full max-w-[1200px] px-6 pt-[140px] pb-[40px] md:px-[80px] md:pt-[200px]">
+      <header className="relative mx-auto w-full max-w-[1200px] px-6 pt-[140px] pb-[40px] md:px-[80px] md:pt-[200px] lg:pr-[260px] xl:pr-[300px]">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute -top-[40px] left-0 -z-10 h-[560px] w-full"
