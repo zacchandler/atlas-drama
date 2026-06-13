@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { home } from "../data/home";
+import { cookie } from "@/data/atlas";
 
 const STORAGE_KEY = "cookie-ok";
 
@@ -79,9 +79,9 @@ export default function CookieBanner() {
           color: "rgba(255, 255, 255, 0.8)",
         }}
       >
-        {home.cookie.text}{" "}
+        {cookie.text}{" "}
         <a
-          href="https://monopo.vn/privacy-policy"
+          href={cookie.privacyUrl}
           target="_blank"
           rel="noopener noreferrer"
           style={{
@@ -90,7 +90,7 @@ export default function CookieBanner() {
             cursor: "pointer",
           }}
         >
-          {home.cookie.privacy_text}
+          {cookie.privacyText}
         </a>
       </p>
 
@@ -114,7 +114,7 @@ export default function CookieBanner() {
           transition: "background 0.3s ease, color 0.3s ease",
         }}
       >
-        {home.cookie.cta}
+        {cookie.cta}
       </button>
 
       <button

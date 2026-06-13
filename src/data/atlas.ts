@@ -789,6 +789,14 @@ export const contact = {
   discordUrl: "https://discord.gg/atlasrust",
 };
 
+// Cookie notice (no links to the template's site — points at the Atlas policy).
+export const cookie = {
+  text: "This website uses cookies to ensure you get the best experience.",
+  privacyText: "Privacy policy",
+  privacyUrl: "https://atlasrust.com/tos-and-policy",
+  cta: "Accept",
+};
+
 // ----------------------------------------------------------------------------
 //  19. RAID MAP  (live raid pins over the wipe map)
 // ----------------------------------------------------------------------------
