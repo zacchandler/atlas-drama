@@ -1,4 +1,5 @@
 import { covers } from "@/data/atlas";
+import { asset } from "@/lib/asset";
 
 /* ------------------------------------------------------------------ */
 /* Strengths — 3 hairline-topped rows (Integrate / Collaborate /      */
@@ -53,7 +54,7 @@ export default function StrengthsSection() {
                     playsInline
                     className="w-full max-w-[342px] md:w-[340px]"
                   >
-                    <source src={`/videos/${videoFile}`} type="video/webm" />
+                    <source src={asset(`/videos/${videoFile}`)} type="video/webm" />
                   </video>
                 </div>
 

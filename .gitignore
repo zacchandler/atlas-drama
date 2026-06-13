@@ -43,3 +43,6 @@ next-env.d.ts
 # monopo research/extraction scaffolding (not part of the app)
 /docs
 .playwright-mcp
+
+# static export output
+/out

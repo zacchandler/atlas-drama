@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import { sceneClans } from "@/data/atlas";
+import { asset } from "@/lib/asset";
 
 /**
  * PartnersSection — the clan roll-call ("the clans in the scene").
@@ -89,7 +90,7 @@ export default function PartnersSection() {
       {/* CTA pill → Power Rankings */}
       <a
         className="button--arrow pill"
-        href="/rankings"
+        href={asset("/rankings")}
         style={{
           position: "relative",
           zIndex: 0,

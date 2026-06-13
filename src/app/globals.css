@@ -1,56 +1,7 @@
 @import "tailwindcss";
 
-/* ============================================================ Fonts
-   Self-hosted (study build) — same faces the live site serves. */
-@font-face {
-  font-family: "Roobert";
-  src: url("/fonts/Roobert-Light.woff2") format("woff2");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Roobert";
-  src: url("/fonts/Roobert-LightItalic.woff2") format("woff2");
-  font-weight: 300;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Roobert";
-  src: url("/fonts/Roobert-Regular.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Roobert";
-  src: url("/fonts/Roobert-RegularItalic.woff2") format("woff2");
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Roobert";
-  src: url("/fonts/Roobert-Bold.woff2") format("woff2");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Raleway";
-  src: url("/fonts/Raleway-Medium.woff2") format("woff2");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Raleway";
-  src: url("/fonts/Raleway-MediumItalic.woff2") format("woff2");
-  font-weight: 500;
-  font-style: italic;
-  font-display: swap;
-}
+/* Fonts (Roobert / Raleway @font-face) are injected in app/layout.tsx so their
+   url()s carry the deploy base path on GitHub Pages. */
 
 /* ============================================================
    monopo saigon study clone — design tokens

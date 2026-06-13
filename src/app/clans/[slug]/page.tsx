@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { clans, raids, playerById, clanById } from "@/data/atlas";
+import { asset } from "@/lib/asset";
 import { TierBadge, scoreColor } from "@/components/inner/ui";
 import Reveal from "@/components/inner/Reveal";
 import FooterContact from "@/components/sections/FooterContact";
@@ -80,7 +81,7 @@ export default async function ClanPage({ params }: { params: Promise<{ slug: str
               <Reveal key={p.id} delay={i * 50}>
                 <div className="overflow-hidden rounded-[12px] border border-white/10 bg-[#0c0c0e]">
                   <div className="relative aspect-[4/3] overflow-hidden">
-                    <img src={p.avatar} alt={p.handle} className="h-full w-full object-cover" loading="lazy" />
+                    <img src={asset(p.avatar)} alt={p.handle} className="h-full w-full object-cover" loading="lazy" />
                     <div className="pointer-events-none absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(6,6,8,0) 40%, rgba(6,6,8,0.85))" }} />
                     <div className="absolute bottom-3 left-4">
                       <h3 className="text-[18px] leading-tight text-white">{p.handle}</h3>

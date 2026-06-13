@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { heroPhrases, site } from "@/data/atlas";
+import { asset } from "@/lib/asset";
 
 /**
  * Hero — Convert.mp4 video background with a grain + ember overlay, a large
@@ -10,7 +11,7 @@ import { heroPhrases, site } from "@/data/atlas";
  */
 
 const CYCLE_MS = 4000;
-const HERO_VIDEO = "/videos/convert-hero.mp4";
+const HERO_VIDEO = asset("/videos/convert-hero.mp4");
 const DISCORD_URL = site.socials.find((s) => s.label === "Discord")?.url ?? "#";
 
 function DiscordIcon() {

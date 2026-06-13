@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { raidMap, clanById } from "@/data/atlas";
+import { asset } from "@/lib/asset";
 import { PageHero } from "@/components/inner/ui";
 import FooterContact from "@/components/sections/FooterContact";
 
@@ -32,7 +33,7 @@ export default function RaidMapPage() {
 
         {/* map */}
         <div className="relative overflow-hidden rounded-[12px] border border-white/10">
-          <img src={raidMap.image} alt="Atlas raid map" className="block w-full" />
+          <img src={asset(raidMap.image)} alt="Atlas raid map" className="block w-full" />
           {raidMap.pins.map((pin) => {
             const clan = clanById(pin.clanId);
             const s = STATUS[pin.status];

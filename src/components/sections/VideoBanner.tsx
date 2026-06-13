@@ -9,9 +9,10 @@
 // Spec: docs/research/components/souls.spec.md + video-banner.tree.json
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { asset } from "@/lib/asset";
 
-const POSTER_SRC = "/videos/pip.mp4";
-const SHOWREEL_SRC = "/videos/pip.mp4";
+const POSTER_SRC = asset("/videos/pip.mp4");
+const SHOWREEL_SRC = asset("/videos/pip.mp4");
 
 const CTRL_BTN =
   "cursor-pointer text-white transition-transform duration-200 hover:scale-[1.2]";

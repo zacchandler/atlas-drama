@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { raids, clanById } from "@/data/atlas";
+import { asset } from "@/lib/asset";
 import { scoreColor } from "@/components/inner/ui";
 import Reveal from "@/components/inner/Reveal";
 import FooterContact from "@/components/sections/FooterContact";
@@ -43,7 +44,7 @@ export default async function RaidPage({ params }: { params: Promise<{ slug: str
     <main className="bg-black">
       {/* Hero with darkened thumbnail */}
       <header className="relative overflow-hidden">
-        <img src={raid.thumb} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover" />
+        <img src={asset(raid.thumb)} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(6,6,8,0.6) 0%, rgba(6,6,8,0.78) 55%, #000 100%)" }} />
         <div className="relative mx-auto w-full max-w-[1100px] px-6 pt-[140px] pb-[56px] md:px-[80px] md:pt-[210px]">
           <Link href="/raids" className="text-[12px] uppercase tracking-[0.08em] text-white/60 transition-colors hover:text-white">

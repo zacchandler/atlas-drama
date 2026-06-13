@@ -22,6 +22,8 @@
  * on data-scroll elements, so neither may be baked into a transform there.
  */
 
+import { asset } from "@/lib/asset";
+
 const ROW_IMAGES: string[][] = [
   ["atlas-01.jpg", "atlas-02.jpg", "atlas-03.jpg"],
   ["atlas-04.jpg", "atlas-05.jpg", "atlas-06.jpg"],
@@ -76,7 +78,7 @@ export default function TilesSection() {
                   >
                     {/* Decorative mosaic photo — plain <img> per spec */}
                     <img
-                      src={`/images/tiles/${file}`}
+                      src={asset(`/images/tiles/${file}`)}
                       alt=""
                       className="h-full w-full -rotate-45 scale-[1.45] object-cover"
                       loading="lazy"

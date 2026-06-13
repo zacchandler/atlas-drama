@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { featuredTeam } from "@/data/atlas";
+import { asset } from "@/lib/asset";
 
 /* ------------------------------------------------------------------ types */
 
@@ -43,7 +44,7 @@ function TeamMember({ member, index }: { member: FeaturedPlayer; index: number }
           className="reveal picture-container relative order-2 z-[1] mt-[13.54px] w-full lg:h-[497px] lg:w-[351.06px]"
         >
           <div className="relative aspect-[351/497] h-full w-full overflow-hidden lg:aspect-auto">
-            <img src={member.pic} alt={`${member.handle}`} loading="lazy" className="block h-full w-full object-cover" />
+            <img src={asset(member.pic)} alt={`${member.handle}`} loading="lazy" className="block h-full w-full object-cover" />
             {/* red wash to bond the placeholder portraits to the palette */}
             <div className="pointer-events-none absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(6,6,8,0) 45%, rgba(6,6,8,0.65) 100%)" }} />
           </div>

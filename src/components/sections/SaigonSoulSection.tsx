@@ -3,6 +3,7 @@
 // ScrollProvider (data-scroll -> .is-inview).
 
 import { dramaStatement } from "@/data/atlas";
+import { asset } from "@/lib/asset";
 
 const pillCss = `
 #saigon-soul .button--arrow {
@@ -63,7 +64,7 @@ export default function SaigonSoulSection() {
 
           {/* Right: gradient pill CTA */}
           <a
-            href={data.ctaHref}
+            href={asset(data.ctaHref)}
             className="button--arrow pill mt-10 inline-flex cursor-pointer items-center self-start md:mt-0"
             style={{ gap: "10px", padding: "19.44px 39.74px", fontSize: "12px", fontWeight: 400, lineHeight: "14.3px", whiteSpace: "nowrap" }}
           >

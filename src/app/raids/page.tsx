@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { raids, clanById, type Raid } from "@/data/atlas";
+import { asset } from "@/lib/asset";
 import { PageHero, scoreColor } from "@/components/inner/ui";
 import Reveal from "@/components/inner/Reveal";
 import FooterContact from "@/components/sections/FooterContact";
@@ -36,7 +37,7 @@ export default function RaidsPage() {
                 <Link href={`/raids/${raid.slug}`} className="group block">
                   <div className="relative aspect-[16/10] overflow-hidden rounded-[10px]">
                     <img
-                      src={raid.thumb}
+                      src={asset(raid.thumb)}
                       alt={raid.title}
                       loading="lazy"
                       className="h-full w-full object-cover brightness-[.8] transition-all duration-700 group-hover:scale-[1.04] group-hover:brightness-100"
