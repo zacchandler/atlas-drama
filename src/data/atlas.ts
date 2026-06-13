@@ -731,16 +731,16 @@ export const sceneClans: string[] = clans.map((c) => c.tag);
 export const manifesto = {
   label: "Manifesto",
   lines: [
-    " We are Atlas.",
-    " The biggest,",
-    " highest-popping,",
-    " most competitive",
-    " servers in Rust.",
-    " This is where",
-    " the best clans",
-    " fight for the top —",
-    " and where every",
-    " raid becomes a story.",
+    " We are Atlas Drama —",
+    " the home of the scene.",
+    " Where the live news",
+    " from Atlas breaks first,",
+    " where the biggest clans",
+    " go head to head.",
+    " Home of the giveaways,",
+    " the rivalries,",
+    " the beef and the news —",
+    " all the drama.",
   ],
 };
 

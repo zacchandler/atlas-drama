@@ -1,6 +1,5 @@
 import ScrollProvider from "@/components/ScrollProvider";
 import HeroSection from "@/components/HeroSection";
-import WorksSection from "@/components/sections/WorksSection";
 import PartnersSection from "@/components/sections/PartnersSection";
 import ManifestoSection from "@/components/sections/ManifestoSection";
 import AboutSection from "@/components/sections/AboutSection";
@@ -17,7 +16,6 @@ export default function Home() {
     <ScrollProvider>
       <div id="home">
           <HeroSection />
-          <WorksSection />
           <PartnersSection />
           <ManifestoSection />
           <AboutSection />

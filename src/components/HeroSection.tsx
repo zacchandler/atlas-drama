@@ -56,7 +56,7 @@ function ScrollBadge() {
       aria-label="Scroll down"
       className="absolute z-[2]"
       style={{ left: 40, bottom: 48, width: 80, height: 80, background: "none", border: "none", padding: 0 }}
-      onClick={() => window.dispatchEvent(new CustomEvent("scroll-to-section", { detail: "#raids" }))}
+      onClick={() => window.dispatchEvent(new CustomEvent("scroll-to-section", { detail: "#partners" }))}
     >
       <span className="block relative" style={{ width: 80, height: 80 }}>
         <svg viewBox="0 0 100 100" width="80" height="80" style={{ animation: "spin-slow 14s linear infinite" }}>

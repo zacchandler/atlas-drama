@@ -10,7 +10,7 @@ import { manifesto } from "@/data/atlas";
 /* ------------------------------------------------------------------ */
 
 /** monopo "i" signature — italicize the i's inside the brand keywords. */
-const KEYWORDS = /(competitive|biggest|fight)/gi;
+const KEYWORDS = /(live|biggest|rivalries)/gi;
 function italicizeKeywords(line: string): string {
   return line.replace(KEYWORDS, (word) => word.replace(/i/gi, (ch) => `<i>${ch}</i>`));
 }
