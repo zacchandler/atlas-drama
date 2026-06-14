@@ -649,7 +649,7 @@ export const sponsors: Sponsor[] = [
       "Revolutionary gaming optimization with enhanced FPS, advanced system cleanup, and ultra-low input delay. Anti-cheat verified.",
     features: ["Enhanced FPS", "Advanced system cleanup", "Ultra-low input delay", "Anti-cheat verified"],
     logo: "/images/sponsors/hypertune.png",
-    url: "#",
+    url: "https://hypertune.gg/",
     downloadLabel: "Download Hypertune V2",
     code: "ATLASDRAMA",
     tier: "title",

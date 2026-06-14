@@ -65,7 +65,7 @@ export default function SiteHeader() {
   const isActive = (item: (typeof nav)[number]) =>
     (pathname !== "/" && pathname.startsWith(item.href)) || active === item.section;
 
-  const isDarkText = active === "contact";
+  const isDarkText = false; // footer is dark now — header stays white throughout
 
   const onSteamSignIn = () => {
     // TODO: wire Steam OpenID sign-in (needs a backend return handler).

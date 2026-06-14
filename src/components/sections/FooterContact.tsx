@@ -27,14 +27,14 @@ function CircleArrowIcon() {
 function RingsMark() {
   return (
     <svg className="fc-mark" viewBox="0 0 42 29" fill="none" aria-hidden="true">
-      <circle cx="14" cy="14.5" r="13" stroke="#d62727" strokeWidth="1.5" />
+      <circle cx="14" cy="14.5" r="13" stroke="#ffffff" strokeWidth="1.5" />
       <circle cx="28" cy="14.5" r="13" stroke="currentColor" strokeWidth="1.5" />
     </svg>
   );
 }
 
-const ASH = "#6d6d6d";
-const CARBON = "#181818";
+const ASH = "#9a9a9a";
+const CARBON = "#ffffff"; // footer is now black & white (dark surface, light text)
 
 // chunk hubs into rows of 2 (2x2 grid)
 const HUB_ROWS = [footer.hubs.slice(0, 2), footer.hubs.slice(2, 4)];
@@ -52,8 +52,7 @@ export default function FooterContact() {
       data-scroll-id="contact"
       data-scroll-repeat="true"
       data-scroll-call="SET_CURRENT_SECTION"
-      data-cursor-dark=""
-      style={{ position: "relative", background: "#fff", color: CARBON, padding: "75px 0 126px" }}
+      style={{ position: "relative", background: "#000", color: CARBON, padding: "75px 0 126px" }}
     >
       <style>{`
         .fc-container { max-width: 1078px; margin: 0 auto; }
@@ -62,7 +61,7 @@ export default function FooterContact() {
         .fc-mail-link { display: inline-block; position: relative; overflow: hidden; margin-top: 14px; padding-bottom: 9px; text-decoration: none; cursor: pointer; transition: opacity 0.2s linear; }
         .fc-mail-link:hover { opacity: 0.6; }
         .fc-mail-text { font-size: 39px; font-weight: 400; line-height: 1.1; display: inline-block; }
-        .fc-mail-bar { position: absolute; left: 0; bottom: 0; width: 100%; height: 1px; background-image: var(--gradient-mercury); transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1); }
+        .fc-mail-bar { position: absolute; left: 0; bottom: 0; width: 100%; height: 1px; background: #ffffff; transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1); }
         .fc-mail-link:hover .fc-mail-bar { transform: translate3d(105%, 0, 0); }
         .fc-hover-dim { cursor: pointer; transition: opacity 0.2s linear; }
         .fc-hover-dim:hover { opacity: 0.6; }
@@ -113,7 +112,7 @@ export default function FooterContact() {
             {footer.smallCatchphrase}
           </span>
           <a className="fc-mail-link" href={`mailto:${footer.contactMail}`}>
-            <span className="fc-mail-text text-gradient-mercury">{footer.contactMail}</span>
+            <span className="fc-mail-text" style={{ color: "#ffffff" }}>{footer.contactMail}</span>
             <span className="fc-mail-bar" aria-hidden="true" />
           </a>
           <p style={{ marginTop: 18, fontSize: 13, lineHeight: 1.5, color: ASH }}>
