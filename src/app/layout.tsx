@@ -4,6 +4,7 @@ import { BASE_PATH } from "@/lib/asset";
 import SiteHeader from "@/components/SiteHeader";
 import DotCursor from "@/components/DotCursor";
 import CookieBanner from "@/components/CookieBanner";
+import SponsorBanner from "@/components/SponsorBanner";
 
 export const metadata: Metadata = {
   title: "Atlas Drama | Power rankings, raid reviews & clan drama from Atlas Rust.",
@@ -42,6 +43,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <SiteHeader />
         <DotCursor />
         <CookieBanner />
+        <SponsorBanner />
         {children}
       </body>
     </html>
