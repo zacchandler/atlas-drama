@@ -1,0 +1,6 @@
+1:"$Sreact.fragment"
+2:I[97367,["/atlas-drama/_next/static/chunks/0k-of7jvb8pac.js","/atlas-drama/_next/static/chunks/14mrh2-p_w84d.js"],"ViewportBoundary"]
+3:I[97367,["/atlas-drama/_next/static/chunks/0k-of7jvb8pac.js","/atlas-drama/_next/static/chunks/14mrh2-p_w84d.js"],"MetadataBoundary"]
+4:"$Sreact.suspense"
+5:I[27201,["/atlas-drama/_next/static/chunks/0k-of7jvb8pac.js","/atlas-drama/_next/static/chunks/14mrh2-p_w84d.js"],"IconMark"]
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"larp maxxing — Atlas Drama"}],["$","link","1",{"rel":"icon","href":"/atlas-drama/seo/favicon-32x32.png","sizes":"32x32","type":"image/png"}],["$","link","2",{"rel":"icon","href":"/atlas-drama/seo/favicon-16x16.png","sizes":"16x16","type":"image/png"}],["$","link","3",{"rel":"apple-touch-icon","href":"/atlas-drama/seo/apple-touch-icon.png"}],["$","$L5","4",{}]]}]}]}],null]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"NrGDF8BFkCyZRRBqlvRsj"}

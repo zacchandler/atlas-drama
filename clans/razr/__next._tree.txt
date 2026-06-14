@@ -1,0 +1,4 @@
+:HL["/atlas-drama/_next/static/chunks/2lnqm3ov5_664.css","style"]
+:HL["/atlas-drama/fonts/Roobert-Light.woff2","font",{"crossOrigin":"anonymous","type":"font/woff2"}]
+:HL["/atlas-drama/fonts/Roobert-Regular.woff2","font",{"crossOrigin":"anonymous","type":"font/woff2"}]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"clans","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"razr","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"NrGDF8BFkCyZRRBqlvRsj"}
