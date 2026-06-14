@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { creatorProgram } from "@/data/atlas";
+import { creators, creatorProgram } from "@/data/atlas";
 import { PageHero, ArrowR } from "@/components/inner/ui";
 import Reveal from "@/components/inner/Reveal";
 import FooterContact from "@/components/sections/FooterContact";
@@ -9,12 +9,55 @@ export const metadata: Metadata = {
   description: creatorProgram.intro,
 };
 
+function YouTubeGlyph() {
+  return (
+    <span className="flex h-[42px] w-[42px] shrink-0 items-center justify-center rounded-[9px]" style={{ background: "#d62727" }}>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff" aria-hidden="true">
+        <path d="M9.5 8.5v7l6-3.5-6-3.5Z" />
+      </svg>
+    </span>
+  );
+}
+
 export default function CreatorsPage() {
+  const featured = creators.filter((c) => c.featured);
+
   return (
     <main className="bg-black">
       <PageHero label={creatorProgram.label} title={creatorProgram.title} sub={creatorProgram.intro} />
 
-      <section className="mx-auto w-full max-w-[1100px] px-6 pb-[120px] md:px-[80px]">
+      {/* Featured creators */}
+      {featured.length > 0 && (
+        <section className="mx-auto w-full max-w-[1100px] px-6 pb-[20px] md:px-[80px]">
+          <h2 className="mb-6 text-[13px] uppercase tracking-[0.1em] text-graphite">Featured creators</h2>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {featured.map((c, i) => (
+              <Reveal key={c.id} delay={i * 50}>
+                <a
+                  href={c.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group flex items-center gap-4 rounded-[12px] border border-white/10 bg-[#0c0c0e] p-4 transition-colors duration-300 hover:border-[#d62727]/40"
+                >
+                  <YouTubeGlyph />
+                  <div className="min-w-0 flex-1">
+                    <h3 className="truncate text-[17px] text-white">{c.name}</h3>
+                    <span className="text-[12px] uppercase tracking-[0.05em] text-graphite">
+                      YouTube{c.handle ? ` · @${c.handle}` : ""}
+                    </span>
+                  </div>
+                  <span className="shrink-0 text-[12px] uppercase tracking-[0.06em] text-graphite transition-colors group-hover:text-white">
+                    Watch <span className="inline-block transition-transform group-hover:translate-x-0.5">→</span>
+                  </span>
+                </a>
+              </Reveal>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <section className="mx-auto w-full max-w-[1100px] px-6 pb-[120px] pt-[60px] md:px-[80px]">
+        <h2 className="mb-6 text-[13px] uppercase tracking-[0.1em] text-graphite">Creator resources</h2>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {creatorProgram.resources.map((r, i) => (
             <Reveal key={r.title} delay={i * 40}>

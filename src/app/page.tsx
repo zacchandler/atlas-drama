@@ -9,6 +9,7 @@ import VideoBanner from "@/components/sections/VideoBanner";
 import SaigonSoulSection from "@/components/sections/SaigonSoulSection";
 import TilesSection from "@/components/sections/TilesSection";
 import TeamSection from "@/components/sections/TeamSection";
+import SponsorSection from "@/components/sections/SponsorSection";
 import FooterContact from "@/components/sections/FooterContact";
 
 export default function Home() {
@@ -27,6 +28,7 @@ export default function Home() {
             <TilesSection />
           </div>
           <TeamSection />
+          <SponsorSection />
           <FooterContact />
       </div>
     </ScrollProvider>

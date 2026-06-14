@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { bans } from "@/data/atlas";
+import { bans, contact } from "@/data/atlas";
 import { PageHero, SeverityTag } from "@/components/inner/ui";
 import Reveal from "@/components/inner/Reveal";
+import { EmptyState } from "@/components/inner/EmptyState";
 import FooterContact from "@/components/sections/FooterContact";
 
 export const metadata: Metadata = {
@@ -26,6 +27,16 @@ export default function HallOfShame() {
       />
 
       <section className="mx-auto w-full max-w-[1100px] px-6 pb-[120px] md:px-[80px]">
+        {bans.length === 0 ? (
+          <EmptyState
+            title="The ban list is being compiled"
+            message="Cheaters, scammers and ban-evaders — published with their Steam and Discord IDs. Caught someone breaking the rules? Report them in the Discord."
+            ctaLabel="Report a cheater on Discord"
+            ctaHref={contact.discordUrl}
+            badge="Updated every wipe"
+          />
+        ) : (
+          <>
         <div className="mb-7 flex items-center justify-between border-b border-white/10 pb-4 text-[11px] uppercase tracking-[0.1em] text-graphite">
           <span>{bans.length} banned</span>
           <span>Updated every wipe</span>
@@ -92,6 +103,8 @@ export default function HallOfShame() {
         <p className="mt-10 max-w-[640px] text-[13px] leading-[1.6] text-graphite">
           Banned unfairly or think there&rsquo;s a mistake? Appeals go through the Atlas Discord. IDs are listed for community awareness across the Atlas servers.
         </p>
+          </>
+        )}
       </section>
 
       <FooterContact />

@@ -221,21 +221,27 @@ export interface VideoItem {
 
 export interface Creator {
   id: string;
+  name: string; // display name
   handle: string;
   platform: Platform;
-  url: string;
+  url: string; // channel url
+  videoUrl?: string; // optional featured video (youtube watch url)
   avatar: string;
-  followers: string; // "12.4k"
+  followers: string; // optional
   featured: boolean;
 }
 
 export interface Sponsor {
   id: string;
   name: string;
-  logo: string;
-  url: string;
-  tier: "title" | "gold" | "partner";
+  tagline: string; // "Powered by ..."
   blurb: string;
+  features: string[];
+  logo: string;
+  url: string; // download / visit link
+  downloadLabel: string;
+  code?: string; // promo code
+  tier: "title" | "gold" | "partner";
 }
 
 export type WipelistServer =
@@ -274,7 +280,7 @@ export const site = {
   url: "https://atlasdrama.gg",
   brandUrl: "https://atlasrust.com",
   socials: [
-    { label: "Discord", url: "https://discord.gg/atlasrust" },
+    { label: "Discord", url: "https://discord.gg/BGhxq9mdU" },
     { label: "YouTube", url: "https://www.youtube.com/@AtlasRustOfficial" },
     { label: "TikTok", url: "https://www.tiktok.com/@atlasrustservers" },
     { label: "X", url: "https://x.com/atlasrust" },
@@ -292,6 +298,7 @@ export const nav = [
   { section: "map", label: "RAID MAP", menuLabel: "Raid Map", href: "/raid-map" },
   { section: "drama", label: "DRAMA", menuLabel: "Drama Feed", href: "/drama" },
   { section: "creators", label: "CREATORS", menuLabel: "Creators", href: "/creators" },
+  { section: "sponsors", label: "SPONSORS", menuLabel: "Sponsors", href: "/sponsors" },
   { section: "shame", label: "HALL OF SHAME", menuLabel: "Hall of Shame", href: "/hall-of-shame" },
 ] as const;
 
@@ -445,56 +452,7 @@ export const players: Player[] = [
 //  6. RAIDS  (scored raid reviews)
 // ----------------------------------------------------------------------------
 
-export const raids: Raid[] = [
-  {
-    id: "r-014-rmb-yuki",
-    slug: "rmb-vs-yuki-forcewipe-ambush",
-    title: "RMB ambush OT on force wipe",
-    date: "2026-06-04",
-    wipe: "w14",
-    attackerClanId: "rmb",
-    defenderClanId: "ot",
-    server: "US 2x Monthly Large",
-    type: "online",
-    outcome: "success",
-    costEstimate: "412 rockets · 1.1k sulfur",
-    lootValue: "~38k scrap + 4 full T3",
-    scores: { execution: 9, intel: 8, defense: 9, entertainment: 10, overall: 9.2 },
-    videoUrl: "",
-    thumb: "/images/raids/rmb-yuki.jpg",
-    gallery: [],
-    writeup: [
-      "Two hours into force wipe, RMB caught yuki mid-upkeep with half the team still farming.",
-      "The first wall went before yuki's counter even loaded in — Boner's roof team held the high ground the entire raid.",
-      "By the time Convertible rallied a counter, the loot room was already empty. A statement raid to open the wipe at #1.",
-    ],
-    tags: ["online", "force-wipe", "S-tier", "rivalry"],
-  },
-  {
-    id: "r-013-hack-triple",
-    slug: "hack-triple-offline-g-row",
-    title: "GK offline three compounds in one night",
-    date: "2026-05-28",
-    wipe: "w13",
-    attackerClanId: "gk",
-    defenderClanId: "sl",
-    server: "EU 2x Monthly Large",
-    type: "offline",
-    outcome: "success",
-    costEstimate: "300 rockets · 80 satchels",
-    lootValue: "~24k scrap",
-    scores: { execution: 8, intel: 7, defense: 5, entertainment: 6, overall: 6.8 },
-    videoUrl: "",
-    thumb: "/images/raids/hack-triple.jpg",
-    gallery: [],
-    writeup: [
-      "Hack spent the wipe farming in silence, then cashed it all in at 4am EU.",
-      "Three offlines back-to-back across G-row — efficient, brutal, and quiet.",
-      "Low entertainment score (it was an offline) but the execution was clean enough to climb them two spots.",
-    ],
-    tags: ["offline", "farm", "efficient"],
-  },
-];
+export const raids: Raid[] = []; // published later — submit via Discord
 
 // ----------------------------------------------------------------------------
 //  7. POWER RANKINGS
@@ -543,39 +501,7 @@ export const wipelist: WipelistSignup[] = [
 //  9. DRAMA FEED
 // ----------------------------------------------------------------------------
 
-export const drama: DramaPost[] = [
-  {
-    id: "d-rmb-yuki-beef",
-    slug: "rmb-yuki-beef-reignites",
-    date: "2026-06-05",
-    title: "The RMB–OT beef just went nuclear",
-    heat: 5,
-    clansInvolved: ["rmb", "ot"],
-    body: [
-      "It started as trash talk in server chat. It ended with 412 rockets.",
-      "After RMB's force-wipe ambush, Convertible called it \"a cheap shot on a half-loaded team.\" Boner's reply: \"loaded or not, your loot's in our base.\"",
-      "Both clans are now hard-committed to a grudge wipe. Expect blood.",
-    ],
-    media: [],
-    sources: [{ label: "Clip", url: "#" }],
-    tags: ["rivalry", "beef", "S-tier"],
-  },
-  {
-    id: "d-driftwood-split",
-    slug: "driftwood-leadership-split",
-    date: "2026-06-02",
-    title: "SL implodes mid-wipe",
-    heat: 3,
-    clansInvolved: ["sl"],
-    body: [
-      "Two founders, one disagreement about a failed online, and suddenly half the roster is gone.",
-      "Driftwood dropped from #3 to #5 in a week. Word is at least two players are shopping for a new tag.",
-    ],
-    media: [],
-    sources: [],
-    tags: ["roster", "drama"],
-  },
-];
+export const drama: DramaPost[] = []; // published later — submit via Discord
 
 // ----------------------------------------------------------------------------
 //  9. NEWS / ANNOUNCEMENTS  (the "news channel")
@@ -602,43 +528,7 @@ export const news: NewsItem[] = [
 //  10. HALL OF SHAME  (public ban list)
 // ----------------------------------------------------------------------------
 
-export const bans: Ban[] = [
-  {
-    id: "b-001",
-    name: "spinbot_andy",
-    knownAs: ["andy", "andy2k"],
-    steamId: "7656119800009001",
-    discordId: "andy#0001",
-    clanTag: "—",
-    reason: "Aimbot + spinbot, confirmed by Overwatch review.",
-    date: "2026-06-01",
-    severity: "cheating",
-    evidence: "#",
-  },
-  {
-    id: "b-002",
-    name: "ScamLord",
-    knownAs: ["trustme", "scamlord"],
-    steamId: "7656119800009002",
-    discordId: "scamlord#4420",
-    clanTag: "—",
-    reason: "Scammed 12k scrap on a fake teleport trade.",
-    date: "2026-05-24",
-    severity: "scamming",
-    evidence: "#",
-  },
-  {
-    id: "b-003",
-    name: "evaderX",
-    knownAs: ["evader", "x_evader_x"],
-    steamId: "7656119800009003",
-    discordId: "evader#7777",
-    clanTag: "—",
-    reason: "Ban evasion — fourth alt this wipe.",
-    date: "2026-05-19",
-    severity: "ban-evasion",
-  },
-];
+export const bans: Ban[] = []; // published later — submit via Discord
 
 // ----------------------------------------------------------------------------
 //  11. WIPE RECAPS
@@ -740,9 +630,10 @@ export const videos: VideoItem[] = [
 // ----------------------------------------------------------------------------
 
 export const creators: Creator[] = [
-  { id: "cr-atlas", handle: "AtlasRustOfficial", platform: "youtube", url: "https://www.youtube.com/@AtlasRustOfficial", avatar: "/images/creators/atlas.jpg", followers: "48k", featured: true },
-  { id: "cr-eclipse", handle: "eclipse", platform: "twitch", url: "#", avatar: "/images/creators/eclipse.jpg", followers: "12.4k", featured: true },
-  { id: "cr-hack", handle: "hackclips", platform: "tiktok", url: "#", avatar: "/images/creators/hack.jpg", followers: "9.1k", featured: false },
+  { id: "panduh", name: "Panduh", handle: "Panduh", platform: "youtube", url: "https://www.youtube.com/channel/UC_9h-6_jvFLHdAD6iWgmHAw", avatar: "", followers: "", featured: true },
+  { id: "lucasrust", name: "lucasrust", handle: "lucasrust4", platform: "youtube", url: "https://www.youtube.com/@lucasrust4", avatar: "", followers: "", featured: true },
+  { id: "deluxe", name: "DeLuXe", handle: "SnDELUXE", platform: "youtube", url: "https://www.youtube.com/@SnDELUXE", avatar: "", followers: "", featured: true },
+  { id: "loon", name: "Loon Rust", handle: "Loon Rust", platform: "youtube", url: "https://www.youtube.com/channel/UCAIJs4qoJ086o2G_tbdLbGA", avatar: "", followers: "", featured: true },
 ];
 
 // ----------------------------------------------------------------------------
@@ -750,8 +641,19 @@ export const creators: Creator[] = [
 // ----------------------------------------------------------------------------
 
 export const sponsors: Sponsor[] = [
-  { id: "s-atlas", name: "Atlas Rust", logo: "/images/sponsors/atlas.png", url: "https://atlasrust.com", tier: "title", blurb: "The servers where it all happens." },
-  { id: "s-rustmagic", name: "RustMagic", logo: "/images/sponsors/rustmagic.png", url: "https://rustmagic.com/r/atlas", tier: "gold", blurb: "Claim 3 free skins." },
+  {
+    id: "hypertune",
+    name: "Hypertune V2",
+    tagline: "Powered by Hypertune V2",
+    blurb:
+      "Revolutionary gaming optimization with enhanced FPS, advanced system cleanup, and ultra-low input delay. Anti-cheat verified.",
+    features: ["Enhanced FPS", "Advanced system cleanup", "Ultra-low input delay", "Anti-cheat verified"],
+    logo: "/images/sponsors/hypertune.png",
+    url: "#",
+    downloadLabel: "Download Hypertune V2",
+    code: "ATLASDRAMA",
+    tier: "title",
+  },
 ];
 
 // ----------------------------------------------------------------------------
@@ -765,7 +667,7 @@ export const footer = {
   contactDiscord: "convertible",
   hubsLabel: "Where to find us",
   hubs: [
-    { city: "Discord", desc: "The community hub — drama, clips, reports.", url: "https://discord.gg/atlasrust", label: "Join the server" },
+    { city: "Discord", desc: "The community hub — drama, clips, reports.", url: "https://discord.gg/BGhxq9mdU", label: "Join the server" },
     { city: "YouTube", desc: "Full raid reviews & wipe recaps.", url: "https://www.youtube.com/@AtlasRustOfficial", label: "Watch" },
     { city: "TikTok", desc: "Clips & the moments that start beef.", url: "https://www.tiktok.com/@atlasrustservers", label: "Watch" },
     { city: "Atlas Rust", desc: "The servers themselves — play here.", url: "https://atlasrust.com", label: "Play" },
@@ -856,7 +758,7 @@ export const featuredTeam = [
 export const contact = {
   email: "drama@atlasrust.com",
   discord: "convertible",
-  discordUrl: "https://discord.gg/atlasrust",
+  discordUrl: "https://discord.gg/BGhxq9mdU",
 };
 
 // Cookie notice (no links to the template's site — points at the Atlas policy).

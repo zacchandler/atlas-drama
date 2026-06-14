@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { drama, clanById } from "@/data/atlas";
+import { drama, clanById, contact } from "@/data/atlas";
 import { PageHero, Heat } from "@/components/inner/ui";
 import Reveal from "@/components/inner/Reveal";
+import { EmptyState } from "@/components/inner/EmptyState";
 import FooterContact from "@/components/sections/FooterContact";
 
 export const metadata: Metadata = {
@@ -19,6 +20,15 @@ export default function DramaPage() {
       />
 
       <section className="mx-auto w-full max-w-[920px] px-6 pb-[120px] md:px-[80px]">
+        {drama.length === 0 ? (
+          <EmptyState
+            title="The drama feed goes live soon"
+            message="Beefs, betrayals, roster moves and the moments that start wars — published as they break. Got intel, a clip, or some beef? Drop it in the Discord."
+            ctaLabel="Submit drama on Discord"
+            ctaHref={contact.discordUrl}
+            badge="Published as it breaks"
+          />
+        ) : (
         <ol className="relative">
           {drama.map((post, i) => {
             const clans = post.clansInvolved.map(clanById).filter(Boolean);
@@ -65,6 +75,7 @@ export default function DramaPage() {
             );
           })}
         </ol>
+        )}
       </section>
 
       <FooterContact />
